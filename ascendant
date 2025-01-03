@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+</script>
+<?php
+
+$ascendantdeg = 1;
+
+if($ascendantdeg >= 0 && $ascendantdeg <= 30)
+{
+    $ascendant = 1;
+}
+if($ascendantdeg >= 31 && $ascendantdeg <= 60)
+{
+    $ascendant = 2;
+}
+if($ascendantdeg >= 61 && $ascendantdeg <= 90)
+{
+    $ascendant = 3;
+}
+if($ascendantdeg >= 91 && $ascendantdeg <= 120)
+{
+    $ascendant = 4;
+}
+if($ascendantdeg >= 121 && $ascendantdeg <= 150)
+{
+    $ascendant = 5;
+}
+if($ascendantdeg >= 151 && $ascendantdeg <= 180)
+{
+    $ascendant = 6;
+}
+if($ascendantdeg >= 181 && $ascendantdeg <= 210)
+{
+    $ascendant = 7;
+}
+if($ascendantdeg >= 211 && $ascendantdeg <= 240)
+{
+    $ascendant = 8;
+}
+if($ascendantdeg >= 241 && $ascendantdeg <= 270)
+{
+    $ascendant = 9;
+}
+if($ascendantdeg >= 271 && $ascendantdeg <= 300)
+{
+    $ascendant = 10;
+}
+if($ascendantdeg >= 300 && $ascendantdeg <= 330)
+{
+    $ascendant = 11;
+}
+if($ascendantdeg >= 331 && $ascendantdeg <= 360)
+{
+    $ascendant = 12;
+}
+
+
+
+
+
+?>
