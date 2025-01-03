@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        table td {
+            border: 1px solid black;
+            
+        }
+
+        .calander{
+            height: 500px;
+            width: 100%;
+            background: #d57e2f;
+            border: 1px solid black;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cal_head{
+            height: 10%;
+            width: 13%;
+            border: 1px solid black;
+            color: #d57e2f;
+            background: #9f2800;
+            text-align: center;
+        }
+
+        
+        .cal_block{
+            height: 17%;
+            width: 13%;
+            border: 1px solid black;
+            
+        }
+    </style>
+</head>
+<body>
+
+<!-- <div class="calander">
+
+        <div class="cal_head">sunday</div><div class="cal_head">monday</div><div class="cal_head">tuesday</div><div class="cal_head">wednesday</div><div class="cal_head">thursday</div><div class="cal_head">friday</div><div class="cal_head">saturnday</div><br>
+        <div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><br>
+        <div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><br>
+        <div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><br>
+        <div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><br>
+        <div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><div class="cal_block"></div><br>
+
+
+</div> -->
+    
+<?php
+
+    function generate_calander($month,$year)
+    {
+        //create array for week day
+        $dayofweek = array('sunday','monday','tuesday','wednesday','thursday','friday','saturday');
+
+        //get the first day of month
+        $firstdayofmonth = mktime(0,0,0,$month,1,$year);
+
+        //get the number of day i the month
+        $daysinmonth = date('t' ,$firstdayofmonth);
+
+        //get the first day of the week
+        $firstdayofweek = date('w',$firstdayofmonth);
+
+        //create calander table 
+        echo '<table>';
+        echo '<tr><th collspan="7">' . date('F Y',$firstdayofmonth) . '</th></tr>';
+        echo '<tr>';
+        foreach($dayofweek as $day){
+            echo '<th>' . substr($day,0,3) . '</th>';
+        }
+        echo '</tr>';
+
+        //create row for the day in the month
+        $daycounter = 0;
+        echo '<tr>';
+        for($i=0;$i<$firstdayofweek;$i++){
+            echo '<td></td>';
+            $daycounter++;
+        }
+
+        for($day=1;$day<=$daysinmonth;$day++){
+            echo '<td>' . $day . '</td>';
+            $daycounter++;
+            if($daycounter % 7 == 0)
+            {
+                echo '</tr><tr>';
+            }
+        }
+
+        //fill in remaining cell if necessary
+        while($daycounter % 7 != 0)
+        {
+            echo '</td><td>';
+            $daycounter++;
+        }
+
+        echo '</tr>';
+        echo '</table>';
+
+    }
+
+    //display calander for all month of the year
+    $year = date('Y');//current year
+    for($month=1;$month<=12;$month++)
+    {
+        generate_calander($month,$year);
+        echo '<br><br>';
+    }
+
+?> 
+</body>
+</html>
